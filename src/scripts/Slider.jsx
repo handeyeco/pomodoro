@@ -4,7 +4,7 @@ export default React.createClass({
   render: function () {
     return (
       <div>
-        <h2>{this.props.name + " Time: " + this.props.current}</h2>
+        <h2>{this.props.current + " Minutes of " + this.props.name}</h2>
         <input
           onChange={this.props.handleChange}
           type="range"
