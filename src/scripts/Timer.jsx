@@ -6,9 +6,10 @@ export default React.createClass({
     let seconds = (this.props.seconds - minutes * 60) + "";
 
     return (
-      <h1>{minutes + ":" +
-        (seconds.length < 2 ? "0" + seconds : seconds) + " " +
-        this.props.status}</h1>
+      <div className="timer">
+        <h1>{minutes + ":" + (seconds.length < 2 ? "0" + seconds : seconds)}</h1>
+        <p>{this.props.status}</p>
+      </div>
     )
   }
 })

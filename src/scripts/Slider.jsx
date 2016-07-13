@@ -3,7 +3,7 @@ import React from 'react';
 export default React.createClass({
   render: function () {
     return (
-      <div>
+      <div className="slider">
         <h2>{this.props.current + " Minutes of " + this.props.name}</h2>
         <input
           onChange={this.props.handleChange}

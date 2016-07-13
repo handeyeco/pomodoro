@@ -74,10 +74,12 @@ const Main = React.createClass({
     return (
       <div className={this.state.working ? "work" : "break"}>
         <Timer seconds={this.state.counting} status={this.state.working ? "Work" : "Break"} />
-        <Slider handleChange={this.handleSliderChange} name="Work" current={this.state.workTime} value={this.state.workTime} step="5" min="5" max="60" />
-        <Slider handleChange={this.handleSliderChange} name="Break" current={this.state.breakTime} value={this.state.breakTime} step="5" min="5" max="60" />
-        <button onClick={this.handleStart}>Start</button>
-        <button onClick={this.handleReset}>Reset</button>
+        <div className="settings-container">
+          <Slider handleChange={this.handleSliderChange} name="Work" current={this.state.workTime} value={this.state.workTime} step="5" min="5" max="60" />
+          <Slider handleChange={this.handleSliderChange} name="Break" current={this.state.breakTime} value={this.state.breakTime} step="5" min="5" max="60" />
+        </div>
+        <button className="start" onClick={this.handleStart}>Start</button>
+        <button className="reset" onClick={this.handleReset}>Reset</button>
       </div>
     );
   }
