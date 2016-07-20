@@ -10,14 +10,16 @@ const Main = React.createClass({
       workTime: 25,
       breakTime: 5,
       counting: 25 * 60,
-      working: true
+      working: true,
+      active: false
     }
   },
 
   handleSliderChange: function (event) {
     clearInterval(this.state.interval);
     this.setState({
-      working: true
+      working: true,
+      active: false
     });
 
     let newValue = event.target.value;
@@ -59,6 +61,7 @@ const Main = React.createClass({
     let interval = setInterval(this.tick, 1000);
 
     this.setState({
+      active: true,
       interval: interval
     });
 
@@ -78,7 +81,7 @@ const Main = React.createClass({
           <Slider handleChange={this.handleSliderChange} name="Work" current={this.state.workTime} value={this.state.workTime} step="5" min="5" max="60" />
           <Slider handleChange={this.handleSliderChange} name="Break" current={this.state.breakTime} value={this.state.breakTime} step="5" min="5" max="60" />
         </div>
-        <button className="start" onClick={this.handleStart}>Start</button>
+        <button className={"start" + (this.state.active ? " active" : "")} onClick={this.handleStart} disabled={this.state.active}>Start</button>
         <button className="reset" onClick={this.handleReset}>Reset</button>
       </div>
     );
